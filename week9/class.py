@@ -1,9 +1,10 @@
 from sys import stdin
 from copy import deepcopy
 
-class Matrix():
-    def __init___(self, matrix):
-        self.matrix = deepcopy(matrix)
+
+class Matrix:
+    def __init__(self, list_of_lists):
+        self.matrix = deepcopy(list_of_lists)
 
     def __str__(self):
         string = ""
@@ -13,22 +14,14 @@ class Matrix():
             string = string[:-1] + '\n'
         return string[:-1]
 
-    @property
     def size(self):
         rows = len(self.matrix)
-        cols = 0
-        for row in self.matrix:
-            if len(row) > cols:
-                cols = len(row)
+        cols = len(self.matrix[0])
+        # for row in self.matrix:
+        #    if len(row) > cols:
+        #        cols = len(row)
 
         return (rows, cols)
 
-#exec(stdin.read())
 
-
-m = Matrix([[1, 0], [0, 1]])
-print(m)
-m = Matrix([[2, 0, 0], [0, 1, 10000]])
-print(m)
-m = Matrix([[-10, 20, 50, 2443], [-5235, 12, 4324, 4234]])
-print(m)
+exec(stdin.read())
