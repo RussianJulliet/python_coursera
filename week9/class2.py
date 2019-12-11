@@ -24,11 +24,16 @@ class Matrix:
         return (rows, cols)
 
     def __add__(self, other):
-        summ = Matrix()
-        for i in range(self):
-            summ[0][i] = self[0][i] + other[0][i]
+        summ = deepcopy(self.matrix)
+        for i in range(len(self.matrix)):
+            for j in range(len(self.matrix[0])):
+                summ[i][j] += other.matrix[i][j]
+                # print(other[i][j])
         return summ
+
 
 m1 = Matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
 m2 = Matrix([[0, 1, 0], [20, 0, -1], [-1, -2, 0]])
+#m3 = m1.add(m2)
 print(m1 + m2)
+
