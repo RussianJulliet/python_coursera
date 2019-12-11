@@ -31,9 +31,15 @@ class Matrix:
                 # print(other[i][j])
         return summ
 
+    def __mul__(self, c):
+        mul = deepcopy(self.matrix)
+        for i in range(len(self.matrix)):
+            for j in range(len(self.matrix[0])):
+                mul[i][j] = mul[i][j] * c
+                # print(other[i][j])
+        return mul
 
-m1 = Matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
-m2 = Matrix([[0, 1, 0], [20, 0, -1], [-1, -2, 0]])
-#m3 = m1.add(m2)
-print(m1 + m2)
+    __rmul__ = __mul__
 
+
+exec(stdin.read())
